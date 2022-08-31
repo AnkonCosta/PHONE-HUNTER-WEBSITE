@@ -37,8 +37,8 @@ const displayData = (phones) => {
 
         </div>`;
         displayPhoneElement.appendChild(phoneDiv);
-
     }
+    loader(false);
 };
 
 // const searchPhone = () => {
@@ -48,6 +48,7 @@ const displayData = (phones) => {
 // }
 
 document.getElementById('btn-search').addEventListener('click', function () {
+    loader(true);
     const searchPhoneFieldElement = document.getElementById('search-field');
     const searchFieldValue = searchPhoneFieldElement.value;
     loadData(searchFieldValue);
@@ -78,6 +79,17 @@ const displayDetails = (phone) => {
 
 
 
+};
+
+const loader = (isLoading) => {
+    const loaderElement = document.getElementById('loader');
+    if (isLoading === true) {
+        loaderElement.classList.remove('d-none');
+    }
+    else {
+        loaderElement.classList.add('d-none');
+
+    }
 }
 
 
@@ -89,5 +101,4 @@ const displayDetails = (phone) => {
 
 
 
-
-loadData('apple');
+// loadData('');
